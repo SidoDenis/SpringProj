@@ -1,0 +1,41 @@
+<html>
+<body>
+<div>
+    <form action="/logout" method="post">
+        <input type="submit" value="Sign Out"/>
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+    </form>
+    <span><a href="/user">User list</a></span>
+</div>
+
+<div>
+    <form method="post" enctype="multipart/form-data">
+        <input type="text" name="text" placeholder="Введите сообщение"/>
+        <input type="text" name="tag" placeholder="Тэг"/>
+        <input type="file" name="file">
+        <input type="hidden" name="_csrf" value="{{_csrf.token}}">
+        <button type="submit">Добавить</button>
+    </form>
+</div>
+
+<form method="get" action="/main">
+    <input type="text" name="filter" value="{{filter}}">
+    <button type="submit">Найти</button>
+</form>
+
+<form method="get" action="/main">
+    <input type="text" name="tag">
+    <button type="submit">Удалить</button>
+</form>
+
+<div>Список сообщений</div>
+{{#messages}}
+    <div>
+        <b>{{id}}</b>
+        <span>{{text}}</span>
+        <i>{{tag}}</i>
+        <strong>{{AuthorName}}</strong>
+    </div>
+    {{/messages}}
+</body>
+</html>

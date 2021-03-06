@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sweater</title>
+</head>
+<body>
+List of users
+<table>
+    <thead>
+    <tr>
+        <th>Name</th>
+        <th>Role</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tbody>
+    {{#users}}
+        <tr>
+            <td>{{username}}</td>
+            <td>{{roles}}</td>
+            <td><a href="/user/${user.id}">edit</a></td>
+        </tr>
+    {{/users}}
+    </tbody>
+</table>
+</body>
+</html>
